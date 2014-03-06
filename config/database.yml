@@ -1,0 +1,16 @@
+development: &common
+  adapter: postgresql
+  encoding: unicode
+  database: sample_app_dev
+  host: localhost
+  pool: 25
+  username: postgres
+  password: postgres
+
+staging:
+  <<: *common
+  database: sample_app_stg
+
+production:
+  <<: *common
+  database: sample_app_prd

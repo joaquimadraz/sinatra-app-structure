@@ -1,0 +1,26 @@
+source 'https://rubygems.org'
+
+gem 'sinatra-activerecord', require: 'sinatra/activerecord'
+gem 'sinatra-support', require: 'sinatra/support'
+gem 'activesupport', require: 'active_support/all'
+gem 'active_model_serializers'
+gem 'capistrano-ext', '1.2.1'
+gem 'capistrano', '2.15.5'
+gem 'sinatra-partial'
+gem 'sinatra-contrib'
+gem 'usecasing'
+gem 'httparty'
+gem 'sinatra'
+gem 'ransack'
+gem 'extlib'
+gem 'rake'
+gem 'pony'
+gem 'thin'
+gem 'pg'
+
+group :development do
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'shotgun'
+  gem 'pry', require: 'pry'
+end
