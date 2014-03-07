@@ -2,7 +2,7 @@ require "rubygems"
 require "bundler"
 require "yaml"
 
-APP_PATH    = "../app"
+APP_PATH = "../app"
 
 # require gemfile
 Bundler.require(:default, ENV["RACK_ENV"].to_sym)
