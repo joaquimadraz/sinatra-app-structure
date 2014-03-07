@@ -2,6 +2,8 @@
 *.rbc
 .bundle
 .config
+.rvmrc
+.rvmrc.*
 coverage
 InstalledFiles
 lib/bundler/man
