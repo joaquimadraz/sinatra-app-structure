@@ -1,9 +1,9 @@
 development: &common
   app_name: "Sample App"
 
-  # configs for mailcatcher
+  # Mail Configs
   mail_from: "system@sampleapp.com"
-  mail_from: "user@sampleapp.com"
+  mail_to: "user@sampleapp.com"
   mail_user: ""
   mail_password: ""
   mail_address: "localhost"

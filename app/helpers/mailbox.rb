@@ -6,4 +6,6 @@ module Mailbox
     Maily.new("Mail Subject", "Mail Body #{complete_data}")
   end
 
+  extend self
+
 end

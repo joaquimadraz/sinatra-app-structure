@@ -15,8 +15,8 @@ gem 'thin'
 gem 'pg'
 
 group :development do
-  gem 'binding_of_caller'
-  gem 'better_errors'
-  gem 'shotgun'
   gem 'pry', require: 'pry'
+  gem 'shotgun'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end

@@ -14,6 +14,10 @@ class SampleApp < Sinatra::Base
     erb :home
   end
 
+  get '/send_mail' do
+    Mailbox.sample_email.deliver
+  end
+
   get '/random_user.json' do
     json error: 'false', message: User.random_name
   end
