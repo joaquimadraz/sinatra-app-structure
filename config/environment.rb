@@ -7,14 +7,19 @@ APP_PATH = "../app"
 # require gemfile
 Bundler.require(:default, ENV["RACK_ENV"].to_sym)
 
-require_relative '../config/configs'
-Configs.load("config/config.yml", ENV["RACK_ENV"])
+require_relative "#{ENV['ROOT_PATH']}/config/configs"
 
-# require my app objects
-require_relative "#{APP_PATH}/routes/init"
-require_relative "#{APP_PATH}/models/init"
-require_relative "#{APP_PATH}/helpers/init"
-require_relative "#{APP_PATH}/usecases/init"
+Configs.load "#{ENV['ROOT_PATH']}/config/config.yml", ENV["RACK_ENV"]
 
-# initializers
-require_relative "initializers/active_record"
+# require app objects
+
+Configs.folders do |f|
+  f 'app/routes'
+  f 'app/models'
+  f 'app/helpers'
+  f 'app/usecases'
+  f 'app/workers'
+  f 'config/initializers'
+end
+
+Configs.require_all
