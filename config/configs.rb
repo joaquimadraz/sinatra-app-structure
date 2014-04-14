@@ -20,7 +20,7 @@ module Configs
   end
 
   def self.require_all
-    Dir.glob(@requirable.folders).each {|file| 
+    Dir.glob(@requirable.folders).sort.each {|file| 
       puts file; 
       require file 
     }
