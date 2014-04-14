@@ -20,9 +20,7 @@ module Configs
   end
 
   def self.require_all
-    Dir.glob(@requirable.folders).sort.each {|file| 
-      require file 
-    }
+    Dir.glob(@requirable.folders).sort.each {|file| require file }
   end
 
   class Requirable
