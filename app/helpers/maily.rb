@@ -1,3 +1,5 @@
+# puts "I am required after mailbox"
+
 class Maily
 
   extend Mailbox

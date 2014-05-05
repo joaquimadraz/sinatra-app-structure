@@ -17,10 +17,22 @@ module Configs
     obj = Requirable.new
     obj.instance_eval(&block)
     @requirable = obj
+
+    self
   end
 
   def self.require_all
-    Dir.glob(@requirable.folders).sort.each {|file| require file }
+    @requirable.folders.each do |folder|
+      sorted_files = []
+
+      Dir.glob(folder).reduce(sorted_files){|sorted_files, path| 
+        path.end_with?('_init.rb') ? sorted_files.unshift(path) : sorted_files << path 
+      }
+      
+      sorted_files.each{|file| require file }
+    end
+
+    @requirable.clean_required_folders
   end
 
   class Requirable
@@ -35,10 +47,43 @@ module Configs
       @folders << (full_path folder)
     end
 
+    def rf folder
+      @tmp_folders = []
+
+      append_recursive_folder folder
+            
+      @tmp_folders.each do |inner_folder|
+        @folders << (full_path inner_folder)
+      end
+    end
+
+    # clean required folders, 
+    # so in the next requires, there are only
+    # not required folders to require.
+    def clean_required_folders
+      @folders = []
+    end
+
     private
 
     def full_path folder
-       "#{ENV['ROOT_PATH']}/#{folder}/*.rb"
+      "#{ENV['ROOT_PATH']}/#{folder}/*.rb"
+    end
+
+    def append_recursive_folder folder    
+      @tmp_folders << folder
+
+      Dir.entries(folder).each do |entry|
+        full_path = "#{folder}/#{entry}"
+        
+        if valid_folder? full_path
+          append_recursive_folder full_path
+        end
+      end
+    end
+
+    def valid_folder? folder
+      File.directory?("#{folder}") && !folder.end_with?('.') && !folder.end_with?('..')
     end
 
   end

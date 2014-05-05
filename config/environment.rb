@@ -14,11 +14,9 @@ Configs.load "#{ENV['ROOT_PATH']}/config/config.yml", ENV["RACK_ENV"]
 # require app objects
 
 Configs.folders do |f|
-  f 'app/helpers'
-  f 'app/models'
-  f 'app/routes'
-  f 'app/usecases'
-  f 'config/initializers'
-end
-
-Configs.require_all
+  f  'app/helpers'
+  f  'app/models'
+  rf 'app/routes'
+  f  'app/usecases'
+  f  'config/initializers'
+end.require_all

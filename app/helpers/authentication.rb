@@ -1,3 +1,5 @@
+# puts "I am required after mailbox"
+
 module Sinatra
   module SessionAuth
 
@@ -6,7 +8,7 @@ module Sinatra
       def authenticated?
         true
       end
-      
+
     end
 
     def self.registered(app)
