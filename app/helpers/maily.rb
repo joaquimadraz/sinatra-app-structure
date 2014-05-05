@@ -1,4 +1,4 @@
-# puts "I am required after mailbox"
+# puts "I was required after mailbox"
 
 class Maily
 
