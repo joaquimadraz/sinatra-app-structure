@@ -18,8 +18,8 @@ class SampleApp < Sinatra::Base
     Mailbox.sample_email.deliver
   end
 
-  get '/random_user.json' do
-    json error: 'false', message: User.random_name
+  get '/user.json' do
+    json error: 'false', message: User.first.to_json
   end
 
 end

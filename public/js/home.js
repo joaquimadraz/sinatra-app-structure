@@ -1,12 +1,13 @@
 $.home = {
 
   init: function(){
-    this.callRandomUser();
+    this.getUser();
   },
 
-  callRandomUser: function(){
-    $.get('/random_user.json', function(data){
-      $('body').append('User: '+ data.message);
+  getUser: function(){
+    $.get('/user.json', function(data){
+      var user = JSON.parse(data.message);
+      $('body').append('User: '+ user.first_name + ' ' + user.last_name);
 
       var color = window.location.pathname.split('/')[1];
       $('body').css('background', color);
