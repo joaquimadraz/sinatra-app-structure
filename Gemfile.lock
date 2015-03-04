@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/joaquimadraz/requirable.git
+  revision: 5d129df96c20c17872765bcf7aa9f18a46274f1b
+  specs:
+    requirable (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -18,27 +24,18 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.2)
     atomic (1.1.15)
-    backports (3.6.0)
+    backports (3.6.4)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-ext (1.2.1)
-      capistrano (>= 1.0.0)
     coderay (1.1.0)
     daemons (1.1.9)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    highline (1.6.21)
     i18n (0.6.9)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -47,13 +44,6 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.0)
-    net-scp (1.1.2)
-      net-ssh (>= 2.6.5)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (2.8.0)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
     pg (0.17.1)
     polyglot (0.3.4)
     pony (1.8)
@@ -107,14 +97,14 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport
+  backports (= 3.6.4)
   better_errors
   binding_of_caller
-  capistrano (= 2.15.5)
-  capistrano-ext (= 1.2.1)
   pg
   pony
   pry
   rake
+  requirable!
   shotgun
   sinatra
   sinatra-activerecord

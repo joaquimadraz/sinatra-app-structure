@@ -1,8 +1,9 @@
 namespace :sample_app do
-  desc "Sample task"
+
+  desc 'Sample task'
 
   task :sample_task do
-    puts "YOLO!"
+    puts 'YOLO!'
   end
 
 end

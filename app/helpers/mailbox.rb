@@ -1,5 +1,3 @@
-# puts "I was required before auth and maily"
-
 module Mailbox
 
   # Mailbox.sample_email(persona).deliver

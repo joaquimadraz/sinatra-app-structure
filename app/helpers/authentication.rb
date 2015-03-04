@@ -1,5 +1,3 @@
-# puts "I was required after mailbox"
-
 module Sinatra
   module SessionAuth
 

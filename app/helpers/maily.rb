@@ -1,5 +1,3 @@
-# puts "I was required after mailbox"
-
 class Maily
 
   extend Mailbox
@@ -7,7 +5,7 @@ class Maily
   attr_reader :via, :tls, :body, :port, :address, :password, :username, :authentication, :to, :from, :subject
 
   def initialize(subject, body)
-    @via            = :smtp      
+    @via            = :smtp
     @tls            = true
     @body           = body
     @port           = Configs['mail_port']

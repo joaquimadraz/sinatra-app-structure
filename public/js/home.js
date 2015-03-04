@@ -1,5 +1,5 @@
 $.home = {
- 
+
   init: function(){
     this.callRandomUser();
   },
