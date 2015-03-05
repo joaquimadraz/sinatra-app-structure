@@ -10,7 +10,6 @@ gem 'usecasing', '~> 0.1.10'
 gem 'sinatra', '~> 1.4.0'
 gem 'backports', '~> 3.6.4'
 gem 'rake'
-gem 'pony', '~> 1.11'
 gem 'pg', '~> 0.18.1'
 
 group :development do
