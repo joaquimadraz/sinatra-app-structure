@@ -19,5 +19,5 @@ Sinatra Modular App Sample
 #### How to run:
 
 ````
-rackup
+bundle & rackup
 ````
