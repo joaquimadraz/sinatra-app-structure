@@ -8,7 +8,6 @@ Sinatra Modular App Sample
 * [sinatra-activerecord](https://github.com/janko-m/sinatra-activerecord) gem, active record and postgres working like Rails
 * [@tdantas](https://github.com/tdantas) [usecasing](https://github.com/tdantas/usecasing) gem
 * Rake tasks, Rails style
-* [Pony](https://github.com/benprew/pony) and a helper to send emails
 * Bundler
 * ...and other stuff
 
