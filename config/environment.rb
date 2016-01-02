@@ -1,13 +1,11 @@
-require "rubygems"
-require "bundler"
-require "yaml"
+require 'rubygems'
+require 'bundler'
+require 'yaml'
 
-APP_PATH = "../app"
+Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
-Bundler.require(:default, ENV["RACK_ENV"].to_sym)
+require 'config/configs'
 
-require_relative "#{ENV['ROOT_PATH']}/config/configs"
+Configs.load 'config/config.yml', ENV['RACK_ENV']
 
-Configs.load "#{ENV['ROOT_PATH']}/config/config.yml", ENV["RACK_ENV"]
-
-Requirable.load! 'config', 'app'
+Requirable.load! 'config/initializers', 'lib', 'app'

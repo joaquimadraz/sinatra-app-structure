@@ -1,22 +1,18 @@
-Sinatra Modular App Sample
+Sample App
 =====================
 
 #### What is inside?
 
-* A sinatra modular app
-* [sinatra-support](https://github.com/sinefunc/sinatra-support) and [sinatra-contrib](https://github.com/sinatra/sinatra-contrib)
-* [sinatra-activerecord](https://github.com/janko-m/sinatra-activerecord) gem, active record and postgres working like Rails
-* [@tdantas](https://github.com/tdantas) [usecasing](https://github.com/tdantas/usecasing) gem
-* Rake tasks, Rails style
-* Bundler
-* ...and other stuff
+Just a boilerplate I use for my personal projects.
 
 #### Requirements:
 
-* gem Bundler installed
+* rename `remove_prefix_config.yml` to `config.yml`
+* add your `TWITTER_API_KEY`
+* add your `TWITTER_API_SECRET`
 
-#### How to run:
-
-````
-bundle & rackup
-````
+#### To run
+* 1. `bundle install`
+* 2. `rake db:create`
+* 3. `rake db:migrate`
+* 3. `rackup -p 5000`

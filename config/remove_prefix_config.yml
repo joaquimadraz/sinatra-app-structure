@@ -1,0 +1,8 @@
+development: &common
+  API_ENDPOINT: 'http://localhost:5000/api/v0/'
+  SESSION_SECRET: 'change_session_secret'
+  TWITTER_API_KEY: ''
+  TWITTER_API_SECRET: ''
+
+test:
+  <<: *common

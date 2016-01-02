@@ -1,0 +1,7 @@
+<% Dir["app/web/assets/css/vendor/**/*.css"].each do |file| %>
+  <%= File.read(file) %>
+<% end %>
+
+<% Dir["app/web/assets/css/*.css"].each do |file| %>
+  <%= File.read(file) %>
+<% end %>
