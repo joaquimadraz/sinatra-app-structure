@@ -1,33 +1,51 @@
-class SampleApp < Sinatra::Base
+module SampleApp
 
-  helpers  Sinatra::JSON
-  register Sinatra::Partial
-  register Sinatra::SessionAuth
-  register Sinatra::ActiveRecordExtension
+  class Web < ::Sinatra::Base
 
-  set :environments, %w{development staging production}
+    UseCases = SampleApp::V0::UseCases
 
-  set :root,                    File.dirname(__FILE__)
-  set :views,                   Proc.new { File.join(root, "app/views") }
-  set :public_folder,           Proc.new { File.join(root, "public") }
-  set :session_secret,          "sample_app_secret_token"
-  set :partial_template_engine, :erb
+    helpers Helpers::CurrentUser
+    helpers Helpers::DeclaredParams
+    helpers ::Sinatra::JSON
+    register ::Sinatra::Partial
+    register ::Sinatra::ActiveRecordExtension
 
-  enable :logging, :sessions, :partial_underscores
+    set :environments, %w{development staging production}
 
-  configure :development do
-    enable :dump_errors, :raise_errors
-    use ::BetterErrors::Middleware
-  end
+    set :root, File.dirname(__FILE__)
+    set :views, Proc.new { File.join(root, 'app/web/assets/views') }
+    set :public_folder, Proc.new { File.join(root, 'public') }
+    set :partial_template_engine, :erb
 
-  configure :staging, :production do
-    set :raise_errors, true
-    set :show_exceptions, false
-    set :dump_errors, false
+    enable :logging, :partial_underscores
 
-    file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
-    file.sync = true
-    use Rack::CommonLogger, file
+    use Rack::Parser, :content_types => {
+      'application/json' => Proc.new { |body| ::MultiJson.decode body },
+      'application/json;charset=UTF-8' => Proc.new { |body| ::MultiJson.decode body }
+    }
+
+    error Compel::InvalidObjectError do |exception|
+      status 400
+      json exception.object
+    end
+
+    configure :development do
+      set :show_exceptions, false
+      set :raise_errors, true
+
+      use ::BetterErrors::Middleware
+    end
+
+    configure :staging, :production do
+      set :raise_errors, true
+      set :show_exceptions, false
+      set :dump_errors, false
+
+      file = File.new("#{settings.root}/log/#{settings.environment}.log", 'a+')
+      file.sync = true
+      use Rack::CommonLogger, file
+    end
+
   end
 
 end

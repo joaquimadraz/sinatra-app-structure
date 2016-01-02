@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample App</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" href="/css/application.css" rel="stylesheet" >
+    <%= partial :'/shared/head_scripts' %>
+  </head>
+  <body>
+    <br />
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Sample App</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <% if !current_user? %>
+                <a href='/login' target="_self">log in with twitter</a>
+              <% end %>
+              <% if current_user? %>
+                <a href='/logout' target="_self">logout <%= current_user.twitter_handler %></a>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+    <%= partial :'/shared/footer_scripts' %>
+  </body>
+</html>
